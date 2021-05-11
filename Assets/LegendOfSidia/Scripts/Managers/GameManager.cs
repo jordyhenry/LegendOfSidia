@@ -33,8 +33,11 @@ namespace LegendOfSidia
             {
                 Player.PlayerData data = playersData[i];
                 Player player = Instantiate(playerPrefab).GetComponent<Player>();
+                player.Setup(data, STARTING_TURNS, STARTING_DICES);
+                
                 Tile tile = board.GetTile(data.currentTile);
-                player.Setup(data, STARTING_TURNS, STARTING_DICES, tile.transform.position);
+                tile.PlaceContent(player);
+                
                 players[i] = player;
             }
         } 

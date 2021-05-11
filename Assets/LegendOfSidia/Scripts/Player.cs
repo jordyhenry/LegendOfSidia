@@ -23,7 +23,7 @@ namespace LegendOfSidia
         public int dices;
         public Color color;
 
-        public void Setup (PlayerData data, int _turns, int _dices, Vector3 tilePosition)
+        public void Setup (PlayerData data, int _turns, int _dices)
         {
             currentTile = data.currentTile;
             transform.name = data.name;
@@ -34,7 +34,6 @@ namespace LegendOfSidia
             dices = _dices;
 
             _renderer.material.color = color;
-            transform.position = tilePosition;
         }
     }
 }
