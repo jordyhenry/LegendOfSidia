@@ -230,6 +230,8 @@ MonoBehaviour:
   columns: 16
   rows: 16
   tilePrefab: {fileID: 6845570248718987265, guid: 4752f3223f40739448823a3abf742c1b, type: 3}
+  whiteMaterial: {fileID: 2100000, guid: 361a408ea60af4743a3aa7976bfbd497, type: 2}
+  blackMaterial: {fileID: 2100000, guid: a2261f5562b1bf941bf22affe58074e6, type: 2}
 --- !u!1 &1694531702
 GameObject:
   m_ObjectHideFlags: 0
