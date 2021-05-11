@@ -32,5 +32,22 @@ namespace LegendOfSidia
 
         public Tile GetTile(int x, int y) => tiles[x, y];
         public Tile GetTile(TileCoords coords) => tiles[coords.x, coords.y];
+
+        public List<Tile> GetEmptyTiles()
+        {
+            List<Tile> emptyTiles = new List<Tile>();
+            
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Tile currentTile = tiles[i, j];
+                    if (currentTile.isEmpty())
+                        emptyTiles.Add(currentTile);
+                }
+            }
+
+            return emptyTiles;
+        }
     }
 }

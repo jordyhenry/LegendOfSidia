@@ -8,21 +8,28 @@ namespace LegendOfSidia
         private const int STARTING_DICES = 3;
         private const int STARTING_TURNS = 3;
 
+        [Header("MANAGERS")]
+        public Board board;
+        public CollectablesPlacer collectablesPlacer;
+        public TileHighligtherManager tileHighligther;
+
+
         [Header("PLAYER SETUP")]
         public Player.PlayerData[] playersData;
         public GameObject playerPrefab;
         private Player[] players;
-        [Space(10)]
+        [Space(30)]
+
+
 
         public CameraRaycaster tileRaycaster;
-        public Board board;
-        public TileHighligtherManager tileHighligther;
 
         public void StartGame()
         {
             board.CreateBoard();
             CreatePlayers();
-            //tileRaycaster.onSelectTile += PlacePlayer;
+            // Setup Player UI
+            collectablesPlacer.CreateCollectables(board.GetEmptyTiles());
         }
 
         private void CreatePlayers ()
