@@ -158,9 +158,9 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1862110974}
-          m_TargetAssemblyTypeName: LegendOfSidia.SquaredTilesBoard, Assembly-CSharp
-          m_MethodName: 
+        - m_Target: {fileID: 1862110975}
+          m_TargetAssemblyTypeName: LegendOfSidia.GameManager, Assembly-CSharp
+          m_MethodName: StartGame
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -182,7 +182,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919165856
 GameObject:
@@ -245,11 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be0a71dcd023f5498c8b8da4b20aecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1048179319 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-  m_PrefabInstance: {fileID: 5859746790459047605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1694531702
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dc95fbb12c1334bb3e9e77f2c6cf0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1048179319}
+  target: {fileID: 0}
   distance: 5
   cameraDistanceMinMax: {x: 2, y: 10}
 --- !u!1 &1780194970
@@ -522,7 +517,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c826b3abb417ef4a86432725f4d1084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1048179319}
+  playersData:
+  - name: Player 01
+    currentTile:
+      x: 0
+      y: 0
+    color: {r: 0.2980392, g: 0.47182378, b: 0.94509804, a: 1}
+    health: 60
+    attack: 15
+  - name: Player 02
+    currentTile:
+      x: 15
+      y: 15
+    color: {r: 0.9339623, g: 0.3480331, b: 0.3480331, a: 1}
+    health: 50
+    attack: 20
+  playerPrefab: {fileID: 8474686283766326207, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
   tileRaycaster: {fileID: 1694531706}
   board: {fileID: 919165858}
   tileHighligther: {fileID: 919165859}
@@ -540,60 +550,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &5859746790459047605
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8474686283766326207, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}

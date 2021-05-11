@@ -31,5 +31,6 @@ namespace LegendOfSidia
         private protected bool isOutOfBounds(int x, int y) => (x < 0 || x >= rows || y < 0 || y >= columns);
 
         public Tile GetTile(int x, int y) => tiles[x, y];
+        public Tile GetTile(TileCoords coords) => tiles[coords.x, coords.y];
     }
 }
