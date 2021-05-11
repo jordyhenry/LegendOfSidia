@@ -8,6 +8,7 @@ namespace LegendOfSidia
         public Transform player;
         public CameraRaycaster tileRaycaster;
         public Board board;
+        public TileHighligtherManager tileHighligther;
 
         public void Start()
         {
@@ -19,12 +20,7 @@ namespace LegendOfSidia
         {
             player.position = tile.transform.position;
             List<Tile> adjacentTiles = board.GetAdjacentTiles(tile.coords.x, tile.coords.y);
-
-            foreach (Tile t in adjacentTiles)
-            {
-                Highlighter highlighter = t.GetComponent<Highlighter>();
-                highlighter?.ActivateHighlight();
-            }
+            tileHighligther.HighlightItems(adjacentTiles);
         }
     }
 }
