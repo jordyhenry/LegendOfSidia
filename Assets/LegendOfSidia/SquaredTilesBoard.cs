@@ -13,12 +13,24 @@ namespace LegendOfSidia {
                 useWhiteMaterial = !useWhiteMaterial;
                 for (int j = 0; j < columns; j++)
                 {
-                    Vector3 tilePosition = new Vector3(i, transform.position.y, j);
-                    GameObject tileGO = Instantiate(tilePrefab, tilePosition, Quaternion.identity, transform);
-                    tileGO.GetComponent<Renderer>().material = (useWhiteMaterial) ? whiteMaterial : blackMaterial;
+                    Material tileMaterial = GetNextMaterial(useWhiteMaterial);
                     useWhiteMaterial = !useWhiteMaterial;
+                    CreateNewTile(i, j, tileMaterial);
                 }
             }
         }
+
+        private void CreateNewTile (int x, int y, Material mat)
+        {
+            Vector3 tilePosition = GenerateTilePosition(x, y);
+            GameObject tileGO = Instantiate(tilePrefab, tilePosition, Quaternion.identity, transform);
+            Tile tile = tileGO.GetComponent<Tile>();
+            tile.ApplyMaterial(mat);
+            tile.coords = new TileCoords(x, y);
+        }
+
+        private Material GetNextMaterial(bool useWhiteMaterial) => (useWhiteMaterial) ? whiteMaterial : blackMaterial;
+
+        private Vector3 GenerateTilePosition (int x, int y) => new Vector3(x, transform.position.y, y);
     }
 }
