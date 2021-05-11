@@ -8,6 +8,9 @@ namespace LegendOfSidia
         public LayerMask raycastLayer;
         public float rayDistance = 30f;
 
+        public delegate void OnSelectTile(Tile tile);
+        public event OnSelectTile onSelectTile;
+
         public void Update()
         {
             if (Input.GetMouseButtonDown(0))
@@ -18,8 +21,8 @@ namespace LegendOfSidia
                 if (Physics.Raycast(ray, out hitInfo, rayDistance, raycastLayer))
                 {
                     Tile tile = hitInfo.collider.GetComponent<Tile>();
-                    if (tile)
-                        Debug.Log(tile.transform.position);
+                    if (tile && onSelectTile != null)
+                        onSelectTile(tile);
                 }
             }
         }
