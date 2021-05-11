@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LegendOfSidia {
@@ -7,6 +8,7 @@ namespace LegendOfSidia {
         public Material blackMaterial;
         public override void CreateBoard()
         {
+            tiles = new Tile[rows, columns];
             bool useWhiteMaterial = false;
             for (int i = 0; i < rows; i++)
             {
@@ -15,18 +17,40 @@ namespace LegendOfSidia {
                 {
                     Material tileMaterial = GetNextMaterial(useWhiteMaterial);
                     useWhiteMaterial = !useWhiteMaterial;
-                    CreateNewTile(i, j, tileMaterial);
+                    Tile tile = CreateNewTile(i, j, tileMaterial);
+                    tiles[i, j] = tile;
                 }
             }
         }
 
-        private void CreateNewTile (int x, int y, Material mat)
+        public override List<Tile> GetAdjacentTiles(int x, int y)
+        {
+            List<Tile> adjacents = new List<Tile>();
+
+            if (!isOutOfBounds(x + 1, y))
+                adjacents.Add(tiles[x + 1, y]);
+            
+            if (!isOutOfBounds(x - 1, y))
+                adjacents.Add(tiles[x - 1, y]);
+            
+            if (!isOutOfBounds(x, y + 1))
+                adjacents.Add(tiles[x, y + 1]);
+            
+            if (!isOutOfBounds(x, y - 1))
+                adjacents.Add(tiles[x, y - 1]);
+
+            return adjacents;
+        }
+
+        private Tile CreateNewTile (int x, int y, Material mat)
         {
             Vector3 tilePosition = GenerateTilePosition(x, y);
             GameObject tileGO = Instantiate(tilePrefab, tilePosition, Quaternion.identity, transform);
             Tile tile = tileGO.GetComponent<Tile>();
             tile.ApplyMaterial(mat);
             tile.coords = new TileCoords(x, y);
+
+            return tile;
         }
 
         private Material GetNextMaterial(bool useWhiteMaterial) => (useWhiteMaterial) ? whiteMaterial : blackMaterial;

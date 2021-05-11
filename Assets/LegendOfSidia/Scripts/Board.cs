@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LegendOfSidia
@@ -22,7 +23,13 @@ namespace LegendOfSidia
         [Range(8, 32)]
         public int rows = 16;
 
+        private protected Tile[,] tiles;
+
         public GameObject tilePrefab;
         public abstract void CreateBoard();
+        public abstract List<Tile> GetAdjacentTiles(int x, int y);
+
+        private protected bool isOutOfBounds(int x, int y) => (x < 0 || x >= rows || y < 0 || y >= columns);
+        
     }
 }

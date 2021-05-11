@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LegendOfSidia
@@ -17,6 +18,12 @@ namespace LegendOfSidia
         private void PlacePlayer (Tile tile)
         {
             player.position = tile.transform.position;
+            List<Tile> adjacentTiles = board.GetAdjacentTiles(tile.coords.x, tile.coords.y);
+
+            foreach (Tile t in adjacentTiles)
+            {
+                Destroy(t.gameObject);
+            }
         }
     }
 }
