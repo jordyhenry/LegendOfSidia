@@ -22,7 +22,8 @@ namespace LegendOfSidia
 
             foreach (Tile t in adjacentTiles)
             {
-                Destroy(t.gameObject);
+                Highlighter highlighter = t.GetComponent<Highlighter>();
+                highlighter?.ActivateHighlight();
             }
         }
     }
