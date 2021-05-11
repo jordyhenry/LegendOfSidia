@@ -158,9 +158,9 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 919165858}
+        - m_Target: {fileID: 1862110974}
           m_TargetAssemblyTypeName: LegendOfSidia.SquaredTilesBoard, Assembly-CSharp
-          m_MethodName: CreateBoard
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -182,7 +182,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919165856
 GameObject:
@@ -194,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919165857}
   - component: {fileID: 919165858}
+  - component: {fileID: 919165859}
   m_Layer: 0
   m_Name: BoardManager
   m_TagString: Untagged
@@ -232,6 +233,18 @@ MonoBehaviour:
   tilePrefab: {fileID: 6845570248718987265, guid: 4752f3223f40739448823a3abf742c1b, type: 3}
   whiteMaterial: {fileID: 2100000, guid: 361a408ea60af4743a3aa7976bfbd497, type: 2}
   blackMaterial: {fileID: 2100000, guid: a2261f5562b1bf941bf22affe58074e6, type: 2}
+--- !u!114 &919165859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919165856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be0a71dcd023f5498c8b8da4b20aecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1048179319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
@@ -512,6 +525,7 @@ MonoBehaviour:
   player: {fileID: 1048179319}
   tileRaycaster: {fileID: 1694531706}
   board: {fileID: 919165858}
+  tileHighligther: {fileID: 919165859}
 --- !u!4 &1862110976
 Transform:
   m_ObjectHideFlags: 0
@@ -524,7 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5859746790459047605
 PrefabInstance:
@@ -535,7 +549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2707881384823262791, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
       propertyPath: m_LocalPosition.x

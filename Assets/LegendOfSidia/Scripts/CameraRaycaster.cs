@@ -11,20 +11,53 @@ namespace LegendOfSidia
         public delegate void OnSelectTile(Tile tile);
         public event OnSelectTile onSelectTile;
 
+        private Highlighter hovered = null;
+
         public void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            
+            if (Input.GetMouseButtonDown(0) && hovered != null)
             {
-                Ray ray = raycastCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hitInfo = new RaycastHit();
-
-                if (Physics.Raycast(ray, out hitInfo, rayDistance, raycastLayer))
-                {
-                    Tile tile = hitInfo.collider.GetComponent<Tile>();
-                    if (tile && onSelectTile != null)
-                        onSelectTile(tile);
-                }
+                Tile tile = hovered.GetComponent<Tile>();
+                if (tile && onSelectTile != null)
+                    onSelectTile(tile);
             }
+            
+            Highlighter hoveredHighlighter = GetHighlighterFromRayCast();
+            if (hoveredHighlighter && hoveredHighlighter.isHighlighted)
+            {
+                if (hoveredHighlighter != hovered && hovered != null)
+                {
+                    hovered.HoverOut();
+                }
+                hovered = hoveredHighlighter;
+                hovered.HoverIn();
+            }
+            else
+            {
+                ClearHovered();
+            }
+        }
+
+        private void ClearHovered()
+        {
+            hovered?.HoverOut();
+            hovered = null;
+
+        }
+
+        private Highlighter GetHighlighterFromRayCast ()
+        {
+            Ray ray = raycastCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo = new RaycastHit();
+
+            if (Physics.Raycast(ray, out hitInfo, rayDistance, raycastLayer))
+            {
+                Highlighter highlighter = hitInfo.collider.GetComponent<Highlighter>();
+                return highlighter;
+            }
+
+            return null;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace LegendOfSidia
         public abstract void CreateBoard();
         public abstract List<Tile> GetAdjacentTiles(int x, int y);
         private protected bool isOutOfBounds(int x, int y) => (x < 0 || x >= rows || y < 0 || y >= columns);
-        
+
+        public Tile GetTile(int x, int y) => tiles[x, y];
     }
 }

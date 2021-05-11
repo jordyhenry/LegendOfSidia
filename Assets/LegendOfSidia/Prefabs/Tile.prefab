@@ -125,3 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightedColor: {r: 0.1273585, g: 1, b: 0.89474595, a: 1}
+  hoveredColor: {r: 1, g: 0.4009434, b: 0.4009434, a: 1}
+  isHighlighted: 0
