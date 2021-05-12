@@ -19,6 +19,9 @@ namespace LegendOfSidia
 
         public DiceTableManager diceTableManager;
 
+        public AudioSource attackSFX;
+        public AudioSource battleOST;
+
         public delegate void OnBattleEnd();
         public OnBattleEnd onBattleEnd;
 
@@ -37,7 +40,7 @@ namespace LegendOfSidia
 
         public void StartBattle (Player turnOwnerPlayer, Player adversaryPlayer)
         {
-            // Play Music
+            battleOST.Play();
             GameplayUIStatsContainer.Instace.blurPanel.SetActive(true);
             currentPlayer1 = turnOwnerPlayer;
             currentPlayer2 = adversaryPlayer;
@@ -102,7 +105,7 @@ namespace LegendOfSidia
                 currentPlayer1.health -= (currentPlayer2.attack + currentPlayer2.turnBonusAttack);
             }
             if (attackParticles) attackParticles.Play();
-            // play attack sfx
+            attackSFX.Play();
             
             yield return new WaitForSeconds(5f);
 
@@ -111,7 +114,7 @@ namespace LegendOfSidia
                 GameplayUIStatsContainer.Instace.blurPanel.SetActive(false);
                 battlePlayer1._gameObject.SetActive(false);
                 battlePlayer2._gameObject.SetActive(false);
-                //Stop battle ost
+                battleOST.Stop();
                 onBattleEnd();
                 currentPlayer1.UpdateUI();
                 currentPlayer2.UpdateUI();
