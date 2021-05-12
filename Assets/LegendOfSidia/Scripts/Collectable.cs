@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+namespace LegendOfSidia
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class Collectable : MonoBehaviour
     {
-        
-    }
+        protected AudioSource audioSource;
+        public ParticleSystem particlesSystem;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake()
+        {
+            audioSource.GetComponent<AudioSource>();
+        }
+
+        public virtual void Collect(Player player)
+        {
+            audioSource?.Play();
+            particlesSystem?.Play();
+        }
+
+        protected private void Die() => Destroy(gameObject);
     }
 }
