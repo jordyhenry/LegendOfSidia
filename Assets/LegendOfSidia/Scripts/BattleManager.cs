@@ -95,11 +95,11 @@ namespace LegendOfSidia
 
             if (p1Score > p2Score)
             {
-                currentPlayer2.health -= currentPlayer1.attack;
+                currentPlayer2.health -= (currentPlayer1.attack + currentPlayer1.turnBonusAttack);
             }
             else
             {
-                currentPlayer1.health -= currentPlayer2.attack;
+                currentPlayer1.health -= (currentPlayer2.attack + currentPlayer2.turnBonusAttack);
             }
             if (attackParticles) attackParticles.Play();
             // play attack sfx
