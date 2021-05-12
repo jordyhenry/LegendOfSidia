@@ -21,8 +21,9 @@ namespace LegendOfSidia
             DeactivateHighlights();
             foreach (Tile t in tiles)
             {
+                if (t.content is Player) continue;
+
                 Highlighter high = t.GetComponent<Highlighter>();
-                
                 if (high)
                 {
                     high.ActivateHighlight();
