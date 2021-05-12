@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 194838166}
   - component: {fileID: 194838165}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 209314510}
   - component: {fileID: 209314512}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 398060756}
   - component: {fileID: 398060755}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 652810589}
   - component: {fileID: 652810588}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TurnsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 716805233}
   - component: {fileID: 716805232}
   m_Layer: 5
-  m_Name: PlayerInfo
+  m_Name: Player02Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,7 +882,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 483.3333, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716805232
 MonoBehaviour:
@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 831463797}
   - component: {fileID: 831463796}
   - component: {fileID: 831463795}
+  - component: {fileID: 831463799}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1098,6 +1099,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &831463799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831463794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca68552048eac242aa36aec90ae54ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPlayer1:
+    healthText: {fileID: 209314510}
+    turnsText: {fileID: 1204329811}
+    attakcText: {fileID: 1009113027}
+  uiPlayer2:
+    healthText: {fileID: 398060756}
+    turnsText: {fileID: 652810589}
+    attakcText: {fileID: 1281821129}
 --- !u!1 &847789879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1248,7 @@ GameObject:
   - component: {fileID: 1009113027}
   - component: {fileID: 1009113029}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1344,7 @@ GameObject:
   - component: {fileID: 1030857621}
   - component: {fileID: 1030857620}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: TurnsIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1651,7 @@ GameObject:
   - component: {fileID: 1204329811}
   - component: {fileID: 1204329813}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TurnsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1730,7 +1751,7 @@ GameObject:
   - component: {fileID: 1239440928}
   - component: {fileID: 1239440927}
   m_Layer: 5
-  m_Name: PlayerInfo
+  m_Name: Player01Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,7 +1777,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 483.3333, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239440927
 MonoBehaviour:
@@ -1884,7 +1905,7 @@ GameObject:
   - component: {fileID: 1281821129}
   - component: {fileID: 1281821128}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AttackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1980,7 +2001,7 @@ GameObject:
   - component: {fileID: 1301326392}
   - component: {fileID: 1301326391}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: AttackIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2055,7 +2076,7 @@ GameObject:
   - component: {fileID: 1409291327}
   - component: {fileID: 1409291326}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2130,7 +2151,7 @@ GameObject:
   - component: {fileID: 1462737298}
   - component: {fileID: 1462737297}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: AttackIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2205,7 +2226,7 @@ GameObject:
   - component: {fileID: 1675008379}
   - component: {fileID: 1675008378}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: TurnsIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2611,7 +2632,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 483.3333, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136727748
 MonoBehaviour:

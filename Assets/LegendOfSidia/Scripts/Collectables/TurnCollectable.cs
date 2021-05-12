@@ -8,6 +8,7 @@ namespace LegendOfSidia
         {
             base.Collect(player);
             player.turns++;
+            player.UpdateUI();
         }
     }
 }

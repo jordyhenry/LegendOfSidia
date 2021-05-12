@@ -11,6 +11,7 @@ namespace LegendOfSidia
             base.Collect(player);
 
             player.turnBonusHealth += Mathf.RoundToInt(Random.Range(healthBonusMinMax.x, healthBonusMinMax.y));
+            player.UpdateUI();
         }
     }
 }

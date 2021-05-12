@@ -10,6 +10,7 @@ namespace LegendOfSidia
             base.Collect(player);
 
             player.turnBonusAttack += Mathf.RoundToInt(Random.Range(attackBonusMinMax.x, attackBonusMinMax.y));
+            player.UpdateUI();
         }
     }
 }

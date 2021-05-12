@@ -51,7 +51,8 @@ namespace LegendOfSidia
             {
                 Player.PlayerData data = playersData[i];
                 Player player = Instantiate(playerPrefab).GetComponent<Player>();
-                player.Setup(data, STARTING_TURNS, STARTING_DICES);
+                Player.PlayerUIStats uiStats = (i == 0) ? GameplayUIStatsContainer.Instace.uiPlayer1 : GameplayUIStatsContainer.Instace.uiPlayer2;
+                player.Setup(data, STARTING_TURNS, STARTING_DICES, uiStats);
                 
                 Tile tile = board.GetTile(data.currentTile);
                 tile.PlaceContent(player);
@@ -119,6 +120,7 @@ namespace LegendOfSidia
             playerCurrentTile.RemoveContent();
             player.currentTile = nextTile.coords;
             nextTile.PlaceContent(player);
+            player.UpdateUI();
         }
 
         #endregion // EXECUTE_PLAYER_MOVEMENT
