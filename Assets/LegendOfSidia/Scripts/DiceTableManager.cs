@@ -60,7 +60,7 @@ namespace LegendOfSidia
             return new Vector3(x, y, z);
         }
 
-        public void ThrowDices()
+        public void RollDices()
         {
             foreach (List<Rigidbody> group in diceGroups)
             {
