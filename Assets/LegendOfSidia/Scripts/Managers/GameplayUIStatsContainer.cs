@@ -16,5 +16,6 @@ namespace LegendOfSidia
 
         public Player.PlayerUIStats uiPlayer1;
         public Player.PlayerUIStats uiPlayer2;
+        public GameObject blurPanel;
     }
 }

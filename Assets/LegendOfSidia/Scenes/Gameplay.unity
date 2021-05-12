@@ -1119,6 +1119,7 @@ MonoBehaviour:
     healthText: {fileID: 398060756}
     turnsText: {fileID: 652810589}
     attakcText: {fileID: 1281821129}
+  blurPanel: {fileID: 1147111956}
 --- !u!1 &847789879
 GameObject:
   m_ObjectHideFlags: 0
