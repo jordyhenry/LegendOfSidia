@@ -6,7 +6,7 @@ namespace LegendOfSidia
     public class SceneLoader : MonoBehaviour
     {
         public static SceneLoader Instance;
-        //public GameOverController.GameOverSceneData gameOverData;
+        public GameOverManager.GameOverSceneData gameOverData;
 
         private const string MENU_SCENE_NAME = "Menu";
         private const string GAMEPLAY_SCENE_NAME = "Gameplay";
