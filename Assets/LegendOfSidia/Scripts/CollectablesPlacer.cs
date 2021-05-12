@@ -27,5 +27,11 @@ namespace LegendOfSidia
 
             targetCollectablesCountToRefill = Mathf.RoundToInt(collectablesCount * 0.1f);
         }
+
+        public bool DecreaseCollectablesCount ()
+        {
+            collectablesCount--;
+            return (collectablesCount <= targetCollectablesCountToRefill);
+        }
     }
 }

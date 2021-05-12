@@ -5,7 +5,7 @@ namespace LegendOfSidia
     public class Tile : MonoBehaviour
     {
         public Board.TileCoords coords;
-        private MonoBehaviour content = null;
+        public MonoBehaviour content = null;
 
         public void PlaceContent (MonoBehaviour _content)
         {

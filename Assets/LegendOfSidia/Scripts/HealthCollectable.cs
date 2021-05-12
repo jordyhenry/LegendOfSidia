@@ -5,6 +5,7 @@ namespace LegendOfSidia
     public class HealthCollectable : Collectable
     {
         private int amount = 0;
+        public GameObject canvas;
 
         private void Start()
         {
@@ -15,7 +16,8 @@ namespace LegendOfSidia
         {
             base.Collect(player);
 
-            player.health += amount;
+            canvas.SetActive(false);
+            player.turnBonusHealth += amount;
             Invoke("Die", Mathf.Max(audioSource.clip.length, particlesSystem.main.duration));
         }
     }

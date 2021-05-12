@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlesSystem: {fileID: 0}
+  canvas: {fileID: 2706920268397503653}
 --- !u!82 &5501418102909967875
 AudioSource:
   m_ObjectHideFlags: 0

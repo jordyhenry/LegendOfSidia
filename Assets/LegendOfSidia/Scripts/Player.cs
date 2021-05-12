@@ -23,6 +23,9 @@ namespace LegendOfSidia
         public int dices;
         public Color color;
 
+        public int turnBonusHealth = 0;
+        public int turnBonusAttack = 0;
+
         public void Setup (PlayerData data, int _turns, int _dices)
         {
             currentTile = data.currentTile;
@@ -41,6 +44,7 @@ namespace LegendOfSidia
             Debug.Log("Reset Turn Points");
             turns = _turns;
             dices = _dices;
+            
             /*
                 currentPlayer.health -= turnExtraPoints.health;
                 currentPlayer.attack -= turnExtraPoints.attack;

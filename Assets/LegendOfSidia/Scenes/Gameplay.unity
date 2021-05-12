@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5351b2d03ae57144af14012e629d96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 16
-  rows: 16
+  columns: 8
+  rows: 8
   tilePrefab: {fileID: 6845570248718987265, guid: 4752f3223f40739448823a3abf742c1b, type: 3}
   whiteMaterial: {fileID: 2100000, guid: 361a408ea60af4743a3aa7976bfbd497, type: 2}
   blackMaterial: {fileID: 2100000, guid: a2261f5562b1bf941bf22affe58074e6, type: 2}
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1194b3b019f75b145abd570b88db9a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillPercentage: 50
+  fillPercentage: 10
   collectablePrefabs:
   - {fileID: 2706920268460542388, guid: 7f2060b9c88fb5a40a13b754cbd6afe4, type: 3}
 --- !u!1 &1022148590
@@ -612,8 +612,8 @@ MonoBehaviour:
     attack: 15
   - name: Player 02
     currentTile:
-      x: 15
-      y: 15
+      x: 7
+      y: 7
     color: {r: 0.9339623, g: 0.3480331, b: 0.3480331, a: 1}
     health: 50
     attack: 20

@@ -87,16 +87,29 @@ namespace LegendOfSidia
         }
         #endregion //CHOOSE_NEXT_PLAYER
 
-        #region EXECUTE PLAYER MOVEMENT
+        #region EXECUTE_PLAYER_MOVEMENT
         public void OnPlayerSelectTile(Tile nextTile) 
         {
             tileRaycaster.onSelectTile -= OnPlayerSelectTile;
             Player currentPlayer = players[currentPlayerIndex];
+
+            CollectCollectable(currentPlayer, nextTile);
             MovePlayerToNextTile(currentPlayer, nextTile);
 
             ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
-            // check collectable
             // check neighbour
+        }
+        private void CollectCollectable(Player currentPlayer, Tile tile)
+        {
+            if (tile.isEmpty()) return;
+            
+            Collectable collectable = tile.content.GetComponent<Collectable>();
+            if (!collectable) return;
+
+            collectable.Collect(currentPlayer);
+            bool shouldRefillBoard = collectablesPlacer.DecreaseCollectablesCount();
+            if (shouldRefillBoard)
+                collectablesPlacer.CreateCollectables(board.GetEmptyTiles());
         }
 
         private void MovePlayerToNextTile (Player player, Tile nextTile)
@@ -107,7 +120,8 @@ namespace LegendOfSidia
             player.currentTile = nextTile.coords;
             nextTile.PlaceContent(player);
         }
-        #endregion
+
+        #endregion // EXECUTE_PLAYER_MOVEMENT
 
         #region STATE_MANAGEMENT
         private void ChangeState (GAME_STATE newState)

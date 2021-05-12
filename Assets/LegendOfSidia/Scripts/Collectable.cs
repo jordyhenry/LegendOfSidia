@@ -9,13 +9,13 @@ namespace LegendOfSidia
 
         private void Awake()
         {
-            audioSource.GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         public virtual void Collect(Player player)
         {
-            audioSource?.Play();
-            particlesSystem?.Play();
+            if(audioSource) audioSource.Play();
+            if(particlesSystem) particlesSystem.Play();
         }
 
         protected private void Die() => Destroy(gameObject);
