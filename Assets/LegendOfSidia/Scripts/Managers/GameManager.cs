@@ -10,6 +10,7 @@ namespace LegendOfSidia
             CREATE_NEW_GAME = 0,
             CHOOSE_NEXT_PLAYER = 1,
             WAIT_PLAYER_MOVE = 2,
+            BATTLING = 3,
         }
 
         private const int STARTING_DICES = 3;
@@ -19,6 +20,7 @@ namespace LegendOfSidia
         public Board board;
         public CollectablesPlacer collectablesPlacer;
         public TileHighligtherManager tileHighligther;
+        public BattleManager battleManager;
         [Space(30)]
 
         [Header("PLAYER SETUP")]
@@ -97,8 +99,18 @@ namespace LegendOfSidia
             CollectCollectable(currentPlayer, nextTile);
             MovePlayerToNextTile(currentPlayer, nextTile);
 
-            ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
-            // check neighbour
+            // Check Battle
+            Player adversary = LookForNeighbourPlayer(currentPlayer);
+            if (adversary)
+            {
+                battleManager.onBattleEnd += OnBattleEnd;
+                battleManager.StartBattle(currentPlayer, adversary);
+                ChangeState(GAME_STATE.BATTLING);
+            }
+            else
+            {
+                ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
+            }
         }
         private void CollectCollectable(Player currentPlayer, Tile tile)
         {
@@ -123,7 +135,30 @@ namespace LegendOfSidia
             player.UpdateUI();
         }
 
-        #endregion // EXECUTE_PLAYER_MOVEMENT
+        private Player LookForNeighbourPlayer (Player currentPlayer)
+        {
+            List<Tile> adjacentTiles = board.GetAdjacentTiles(currentPlayer.currentTile.x, currentPlayer.currentTile.y);
+            foreach (Tile tile in adjacentTiles)
+            {
+                if (tile?.content is Player)
+                {
+                    return (Player)tile.content;
+                }
+            }
+
+            return null;
+        }
+        #endregion //EXECUTE_PLAYER_MOVEMENT
+
+        private void OnBattleEnd() 
+        {
+            battleManager.onBattleEnd -= OnBattleEnd;
+            // Check if players are dead
+            // Load Scene
+
+            ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
+        }
+
 
         #region STATE_MANAGEMENT
         private void ChangeState (GAME_STATE newState)
@@ -142,6 +177,8 @@ namespace LegendOfSidia
                     ChooseNextPlayer();
                     break;
                 case GAME_STATE.WAIT_PLAYER_MOVE:
+                    break;
+                case GAME_STATE.BATTLING:
                     break;
                 default:
                     break;
