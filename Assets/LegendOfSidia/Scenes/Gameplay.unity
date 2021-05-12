@@ -258,9 +258,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1194b3b019f75b145abd570b88db9a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillPercentage: 10
+  fillPercentage: 50
   collectablePrefabs:
+  - {fileID: 2706920268460542388, guid: 5e5102b636031b946bd0ba58c8cd2c6e, type: 3}
+  - {fileID: 2706920268460542388, guid: de4665710d84ec748ad4ce658d67e6d4, type: 3}
   - {fileID: 2706920268460542388, guid: 7f2060b9c88fb5a40a13b754cbd6afe4, type: 3}
+  - {fileID: 2706920268460542388, guid: 2f4f7471d0ace9d438866c99e20a322c, type: 3}
 --- !u!1 &1022148590
 GameObject:
   m_ObjectHideFlags: 0
