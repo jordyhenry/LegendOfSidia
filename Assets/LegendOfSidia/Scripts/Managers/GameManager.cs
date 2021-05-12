@@ -40,7 +40,6 @@ namespace LegendOfSidia
         {
             board.CreateBoard();
             CreatePlayers();
-            // Setup Player UI
             collectablesPlacer.CreateCollectables(board.GetEmptyTiles());
             ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
         }
@@ -153,8 +152,14 @@ namespace LegendOfSidia
         private void OnBattleEnd() 
         {
             battleManager.onBattleEnd -= OnBattleEnd;
-            // Check if players are dead
-            // Load Scene
+            if (players[0].health <= 0)
+            {
+                SceneLoader.Instance.LoadGameOver();
+            }
+            else if (players[1].health <= 0)
+            {
+                SceneLoader.Instance.LoadGameOver();
+            }
 
             ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
         }
