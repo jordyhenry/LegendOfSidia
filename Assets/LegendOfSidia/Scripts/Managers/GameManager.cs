@@ -152,12 +152,15 @@ namespace LegendOfSidia
         private void OnBattleEnd() 
         {
             battleManager.onBattleEnd -= OnBattleEnd;
+            
             if (players[0].health <= 0)
             {
+                SceneLoader.Instance.gameOverData = new GameOverManager.GameOverSceneData(players[1].color, players[1].name, players[0].color);
                 SceneLoader.Instance.LoadGameOver();
             }
             else if (players[1].health <= 0)
             {
+                SceneLoader.Instance.gameOverData = new GameOverManager.GameOverSceneData(players[0].color, players[0].name, players[1].color);
                 SceneLoader.Instance.LoadGameOver();
             }
 

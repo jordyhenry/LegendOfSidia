@@ -2639,14 +2639,14 @@ MonoBehaviour:
       y: 0
     color: {r: 0.2980392, g: 0.47182378, b: 0.94509804, a: 1}
     health: 60
-    attack: 15
+    attack: 100
   - name: Player 02
     currentTile:
       x: 7
       y: 7
     color: {r: 0.9339623, g: 0.3480331, b: 0.3480331, a: 1}
     health: 50
-    attack: 20
+    attack: 100
   playerPrefab: {fileID: 8474686283766326207, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
   tileRaycaster: {fileID: 1694531706}
   smoothCameraFollow: {fileID: 1694531708}
