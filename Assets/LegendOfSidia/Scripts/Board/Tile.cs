@@ -18,6 +18,13 @@ namespace LegendOfSidia
             content = _content;
         }
 
+        public void RemoveContent ()
+        {
+            if (!content) return;
+            content.transform.parent = null;
+            content = null;
+        }
+
         public bool isEmpty() => content == null;
         public void ApplyMaterial(Material newMat) => GetComponent<Renderer>().material = newMat;
     }

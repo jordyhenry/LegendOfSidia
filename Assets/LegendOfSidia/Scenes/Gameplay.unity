@@ -619,6 +619,7 @@ MonoBehaviour:
     attack: 20
   playerPrefab: {fileID: 8474686283766326207, guid: 59659ba3a28966a479440e9bf9e5b288, type: 3}
   tileRaycaster: {fileID: 1694531706}
+  smoothCameraFollow: {fileID: 1694531708}
 --- !u!4 &1862110976
 Transform:
   m_ObjectHideFlags: 0

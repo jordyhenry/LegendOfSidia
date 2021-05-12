@@ -5,6 +5,13 @@ namespace LegendOfSidia
 {
     public class GameManager : MonoBehaviour
     {
+        public enum GAME_STATE
+        {
+            CREATE_NEW_GAME = 0,
+            CHOOSE_NEXT_PLAYER = 1,
+            WAIT_PLAYER_MOVE = 2,
+        }
+
         private const int STARTING_DICES = 3;
         private const int STARTING_TURNS = 3;
 
@@ -12,24 +19,28 @@ namespace LegendOfSidia
         public Board board;
         public CollectablesPlacer collectablesPlacer;
         public TileHighligtherManager tileHighligther;
-
+        [Space(30)]
 
         [Header("PLAYER SETUP")]
         public Player.PlayerData[] playersData;
         public GameObject playerPrefab;
         private Player[] players;
+        private int currentPlayerIndex = 0;
         [Space(30)]
 
-
-
+        [Header("CAMERA COMPONENTS")]
         public CameraRaycaster tileRaycaster;
+        public SmoothCameraFollow smoothCameraFollow;
+        private GAME_STATE currentState = GAME_STATE.CREATE_NEW_GAME;
 
-        public void StartGame()
+        #region CREATE_NEW_GAME
+        public void CreateNewGame()
         {
             board.CreateBoard();
             CreatePlayers();
             // Setup Player UI
             collectablesPlacer.CreateCollectables(board.GetEmptyTiles());
+            ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
         }
 
         private void CreatePlayers ()
@@ -47,13 +58,79 @@ namespace LegendOfSidia
                 
                 players[i] = player;
             }
-        } 
-
-        private void PlacePlayer (Tile tile)
-        {
-            //player.position = tile.transform.position;
-            List<Tile> adjacentTiles = board.GetAdjacentTiles(tile.coords.x, tile.coords.y);
-            tileHighligther.HighlightItems(adjacentTiles);
         }
+        #endregion //CREATE_NEW_GAME
+
+        #region CHOOSE_NEXT_PLAYER
+        private void ChooseNextPlayer ()
+        {
+            Player currentPlayer = players[currentPlayerIndex];
+
+            if (currentPlayer.turns <= 0)
+            {
+                currentPlayer.ResetTurnPoints(STARTING_TURNS, STARTING_DICES);
+                currentPlayerIndex++;
+                if (currentPlayerIndex >= players.Length) currentPlayerIndex = 0;
+            }
+
+            currentPlayer = players[currentPlayerIndex];
+            smoothCameraFollow.target = currentPlayer.transform;
+            EnablePlayerMovement(currentPlayer);
+        }
+
+        private void EnablePlayerMovement (Player currentPlayer)
+        {
+            List<Tile> playerAdjacentTiles = board.GetAdjacentTiles(currentPlayer.currentTile.x, currentPlayer.currentTile.y);
+            tileHighligther.HighlightItems(playerAdjacentTiles);
+            tileRaycaster.onSelectTile += OnPlayerSelectTile;
+            ChangeState(GAME_STATE.WAIT_PLAYER_MOVE);
+        }
+        #endregion //CHOOSE_NEXT_PLAYER
+
+        #region EXECUTE PLAYER MOVEMENT
+        public void OnPlayerSelectTile(Tile nextTile) 
+        {
+            tileRaycaster.onSelectTile -= OnPlayerSelectTile;
+            Player currentPlayer = players[currentPlayerIndex];
+            MovePlayerToNextTile(currentPlayer, nextTile);
+
+            ChangeState(GAME_STATE.CHOOSE_NEXT_PLAYER);
+            // check collectable
+            // check neighbour
+        }
+
+        private void MovePlayerToNextTile (Player player, Tile nextTile)
+        {
+            player.turns--;
+            Tile playerCurrentTile = board.GetTile(player.currentTile);
+            playerCurrentTile.RemoveContent();
+            player.currentTile = nextTile.coords;
+            nextTile.PlaceContent(player);
+        }
+        #endregion
+
+        #region STATE_MANAGEMENT
+        private void ChangeState (GAME_STATE newState)
+        {
+            currentState = newState;
+        }
+
+        private void Update()
+        {
+            switch (currentState)
+            {
+                case GAME_STATE.CREATE_NEW_GAME:
+                    CreateNewGame();
+                    break;
+                case GAME_STATE.CHOOSE_NEXT_PLAYER:
+                    ChooseNextPlayer();
+                    break;
+                case GAME_STATE.WAIT_PLAYER_MOVE:
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
     }
 }
