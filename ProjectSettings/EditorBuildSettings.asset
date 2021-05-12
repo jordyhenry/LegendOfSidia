@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/LegendOfSidia/Scenes/Menu.unity
+    guid: e3d44661da601b048bab49f2133a4857
+  - enabled: 1
+    path: Assets/LegendOfSidia/Scenes/Gameplay.unity
+    guid: 2b6c4cf3e514d494280e3aba85ebf064
+  - enabled: 1
+    path: Assets/LegendOfSidia/Scenes/GameOver.unity
+    guid: 322b56a3a90e5be46922e4d39b92a4be
   m_configObjects: {}
