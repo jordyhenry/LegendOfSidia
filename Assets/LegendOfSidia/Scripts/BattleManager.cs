@@ -86,6 +86,8 @@ namespace LegendOfSidia
                 int p1TurnDice = battleScores[0][i];
                 int p2TurnDice = battleScores[1][i];
 
+                Debug.Log($"Turn {i}. p1Dice: {p1TurnDice} - p2Dice: {p2TurnDice}.");
+
                 if (p1TurnDice > p2TurnDice) p1Score++;
                 else if (p1TurnDice < p2TurnDice) p2Score++;
                 else p1Score++;

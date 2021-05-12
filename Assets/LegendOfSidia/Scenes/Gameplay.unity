@@ -1077,7 +1077,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1694531704}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2237,7 +2237,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467692687}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b726f1951a637aa43a6d104e1d552a78, type: 3}
   m_Name: 
@@ -2599,6 +2599,7 @@ MonoBehaviour:
   board: {fileID: 919165858}
   collectablesPlacer: {fileID: 919165860}
   tileHighligther: {fileID: 919165859}
+  battleManager: {fileID: 1982331094}
   playersData:
   - name: Player 01
     currentTile:
@@ -2631,6 +2632,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982331094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1982331094, guid: 330e875efb5939a4eb911f4238694f92, type: 3}
+  m_PrefabInstance: {fileID: 3271117413020025339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6b524447ed9ca478873b44a7338a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2136727746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,9 +2746,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1272417779399734842, guid: 618f8bdedc4f8ee49a05c8bef13a8a5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1272417779399734845, guid: 618f8bdedc4f8ee49a05c8bef13a8a5f, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272417779399734845, guid: 618f8bdedc4f8ee49a05c8bef13a8a5f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1272417779399734845, guid: 618f8bdedc4f8ee49a05c8bef13a8a5f, type: 3}
       propertyPath: m_LocalScale.z
@@ -2867,6 +2887,14 @@ PrefabInstance:
       propertyPath: diceTableManager
       value: 
       objectReference: {fileID: 1467692689}
+    - target: {fileID: 3271117412742545728, guid: 330e875efb5939a4eb911f4238694f92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271117412908412235, guid: 330e875efb5939a4eb911f4238694f92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3271117413252380973, guid: 330e875efb5939a4eb911f4238694f92, type: 3}
       propertyPath: m_RootOrder
       value: 7

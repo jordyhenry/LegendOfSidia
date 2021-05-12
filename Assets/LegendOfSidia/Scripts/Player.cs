@@ -55,7 +55,6 @@ namespace LegendOfSidia
 
         public void ResetTurnPoints(int _turns, int _dices)
         {
-            Debug.Log("Reset Turn Points");
             turns = _turns;
             dices = _dices;
 

@@ -53,9 +53,9 @@ namespace LegendOfSidia
         }
         private Vector3 GenerateNewDicePosition ()
         {
-            float x = Random.Range(-table.transform.localScale.x, table.transform.localScale.x) + table.transform.position.x;
+            float x = Random.Range(-table.transform.localScale.x / 2f, table.transform.localScale.x / 2f) + table.transform.position.x;
             float y = table.transform.position.y + (table.transform.localScale.y / 2f);
-            float z = Random.Range(-table.transform.localScale.z, table.transform.localScale.z) + table.transform.position.z;
+            float z = Random.Range(-table.transform.localScale.z / 2f, table.transform.localScale.z / 2f) + table.transform.position.z;
 
             return new Vector3(x, y, z);
         }
