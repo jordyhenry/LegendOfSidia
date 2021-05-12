@@ -113,6 +113,8 @@ namespace LegendOfSidia
                 battlePlayer2._gameObject.SetActive(false);
                 //Stop battle ost
                 onBattleEnd();
+                currentPlayer1.UpdateUI();
+                currentPlayer2.UpdateUI();
             }
         }
     }

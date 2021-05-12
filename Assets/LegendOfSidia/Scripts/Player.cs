@@ -18,6 +18,7 @@ namespace LegendOfSidia
         [System.Serializable]
         public struct PlayerUIStats
         {
+            public Image backgroundImage;
             public Text healthText;
             public Text turnsText;
             public Text attakcText;
@@ -73,6 +74,7 @@ namespace LegendOfSidia
             UIStats.attakcText.text = (attack + turnBonusAttack).ToString().PadLeft(2);
             UIStats.healthText.text = (health + turnBonusHealth).ToString().PadLeft(2);
             UIStats.turnsText.text = (turns).ToString().PadLeft(2);
+            UIStats.backgroundImage.color = color;
         }
     }
 }
