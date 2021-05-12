@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCollectable : MonoBehaviour
+namespace LegendOfSidia
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AttackCollectable : CollectableWithCanvas
     {
-        
-    }
+        public Vector2 attackBonusMinMax;
+        public override void Collect(Player player)
+        {
+            base.Collect(player);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            player.turnBonusAttack += Mathf.RoundToInt(Random.Range(attackBonusMinMax.x, attackBonusMinMax.y));
+        }
     }
 }
