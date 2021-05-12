@@ -85,6 +85,8 @@ namespace LegendOfSidia
                 {
                     if (dice.velocity == Vector3.zero)
                         finishedDicesCount++;
+                    else if (Vector3.Distance(dice.position, table.transform.position) > 10f)
+                        dice.transform.position = table.transform.position + Vector3.up;
                 }
 
                 if (finishedDicesCount >= group.Count)
